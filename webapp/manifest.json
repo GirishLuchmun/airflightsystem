@@ -17,7 +17,7 @@
     },
     "dataSources": {
       "mainService": {
-        "uri": "/sap/opu/odata/sap/ZFLA_PO_DETAILS_SRV/",
+        "uri": "/sap/opu/odata/sap/ZGW_ZD_FLIGHTSYSTEM_SRV/",
         "type": "OData",
         "settings": {
           "annotations": [],
@@ -44,7 +44,7 @@
     }
   },
   "sap.ui5": {
-    "flexEnabled": true,
+    "flexEnabled": false,
     "dependencies": {
       "minUI5Version": "1.126.0",
       "libs": {
@@ -89,33 +89,35 @@
         "async": true,
         "viewPath": "fiori.bootcamp.airflightsystem.view",
         "controlAggregation": "pages",
-        "controlId": "app",
-        "clearControlAggregation": false
+        "controlId": "AirFlightAppId",
+        "clearControlAggregation": false,
+        "fullWidth": true,
+        "stretch": true
       },
       "routes": [
         {
-          "name": "RouteAirFlight",
+          "name": "RouteAirFlightList",
           "pattern": ":?query:",
           "target": [
-            "TargetAirFlight"
+            "TargetAirFlightList"
           ]
         }
       ],
       "targets": {
-        "TargetAirFlight": {
+        "TargetAirFlightList": {
           "viewType": "XML",
           "transition": "slide",
           "clearControlAggregation": false,
-          "viewId": "AirFlight",
-          "viewName": "AirFlight"
+          "viewId": "AirFlightList",
+          "viewName": "AirFlightList"
         }
       }
     },
     "rootView": {
-      "viewName": "fiori.bootcamp.airflightsystem.view.App",
+      "viewName": "fiori.bootcamp.airflightsystem.view.AirFlightApp",
       "type": "XML",
       "async": true,
-      "id": "App"
+      "id": "AirFlightAppId"
     }
   }
 }

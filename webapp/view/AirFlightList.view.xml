@@ -1,0 +1,65 @@
+<mvc:View id="AirFlightList" controllerName="fiori.bootcamp.airflightsystem.controller.AirFlightList"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns:m="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:f="sap.f"
+	xmlns:st="sap.ui.comp.smarttable"
+    xmlns:sfb="sap.ui.comp.smartfilterbar"
+	xmlns:svm="sap.ui.comp.smartvariants">
+    <f:DynamicPage id="AirFlightListPageId">
+			<f:title>
+				<f:DynamicPageTitle>
+					<f:heading>
+						<svm:SmartVariantManagement id="PageVariantId" showExecuteOnSelection="true" />
+					</f:heading>
+				</f:DynamicPageTitle>
+			</f:title>
+			<f:header>
+				<f:DynamicPageHeader>
+					<f:content>
+						<sfb:SmartFilterBar
+							id="smartFilterBar"
+							entitySet="AirlineSet"
+							search="onSearch">
+							<sfb:customData>
+								<core:CustomData
+									key="Country"/>
+							</sfb:customData>
+							<sfb:controlConfiguration>
+								<sfb:ControlConfiguration
+									key="Country">
+									<sfb:customControl>
+								<m:MultiComboBox
+									id="multiComboBox"
+									selectionChange="customFieldChange">
+									<core:Item key="1" text="ONE"/>
+								</m:MultiComboBox>
+							</sfb:customControl>
+							</sfb:ControlConfiguration>
+								<sfb:ControlConfiguration
+									key="Airline Name" />
+							</sfb:controlConfiguration>
+						</sfb:SmartFilterBar>
+						
+					</f:content>
+				</f:DynamicPageHeader>
+			</f:header>
+			<f:content>
+				<st:SmartTable
+					id="smartTable"
+					entitySet="AirlineSet"
+					smartVariant="PageVariantId"
+					smartFilterId="smartFilterBar"
+					beforeRebindTable="onBeforeRebindTable"
+					tableType="Table"
+					enableAutoColumnWidth="true"
+					useTablePersonalisation="true"
+					header="{i18n>airFlight}"
+					showRowCount="true">
+					<st:layoutData>
+						<m:FlexItemData growFactor="1" baseSize="0%"/>
+					</st:layoutData>
+				</st:SmartTable>
+			</f:content>
+		</f:DynamicPage>
+</mvc:View>
