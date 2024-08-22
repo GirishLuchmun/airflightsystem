@@ -1,8 +1,68 @@
-<mvc:View id="AirFlightCreate" controllerName="fiori.bootcamp.airflightsystem.controller.AirFlightCreate"
+<mvc:View xmlns:uxap="sap.uxap" id="AirFlightCreate" controllerName="fiori.bootcamp.airflightsystem.controller.AirFlightCreate"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
     xmlns:m="sap.m"
+	xmlns="sap.uxap"
 	xmlns:core="sap.ui.core"
 	xmlns:f="sap.f"
 	xmlns:st="sap.ui.comp.smarttable">
 
+	<ObjectPageLayout >
+		<headerTitle>
+			<ObjectPageHeader objectTitle="ObjectTitle">
+			
+			</ObjectPageHeader>
+		</headerTitle>
+		<sections>
+			<ObjectPageSection title="Flight Details">
+				<subSections>
+					<ObjectPageSubSection title="Sub Title 2">
+						<m:VBox >
+							<m:Label text="From"/>
+							<m:ComboBox
+								id="departureId"
+								selectionChange="customFieldChange">
+								<core:Item key="1" text="Mauritius"/>
+								<core:Item key="2" text="Paris"/>
+								<core:Item key="3" text="Rome"/>
+								<core:Item key="4" text="Dubai"/>
+								<core:Item key="5" text="Istanbul"/>
+							</m:ComboBox>
+							<m:Label text="To"/>
+							<m:ComboBox
+								id="destinationId"
+								selectionChange="customFieldChange">
+								<core:Item key="1" text="Mauritius"/>
+								<core:Item key="2" text="Paris"/>
+								<core:Item key="3" text="Rome"/>
+								<core:Item key="4" text="Dubai"/>
+								<core:Item key="5" text="Istanbul"/>
+							</m:ComboBox>
+						</m:VBox>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+			<ObjectPageSection 
+				title="Title 2">
+				<subSections>
+					<ObjectPageSubSection title="Sub Title 2">
+						<m:VBox >
+							<m:Label text="Name"/>
+							<m:Input></m:Input>
+							<m:Label text="Surname"/>
+							<m:Input></m:Input>
+						</m:VBox>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+			<ObjectPageSection 
+				title="Title 3">
+			
+			</ObjectPageSection>
+		</sections>
+		<footer>
+			<m:Toolbar>
+				<m:Button press="fnSaveBooking" text="Save"></m:Button>
+			</m:Toolbar>
+		</footer>
+	</ObjectPageLayout>
 </mvc:View>

@@ -101,6 +101,13 @@
           "target": [
             "TargetAirFlightList"
           ]
+        },
+        {
+          "name": "AirFlightCreate",
+          "pattern": "AirFlightCreate",
+          "target": [
+            "TargetAirFlightCreate"
+          ]
         }
       ],
       "targets": {
@@ -110,6 +117,13 @@
           "clearControlAggregation": false,
           "viewId": "AirFlightList",
           "viewName": "AirFlightList"
+        },
+        "TargetAirFlightCreate": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "AirFlightCreate",
+          "viewName": "AirFlightCreate"
         }
       }
     },
