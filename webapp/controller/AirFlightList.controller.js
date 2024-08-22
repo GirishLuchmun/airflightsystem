@@ -22,6 +22,11 @@ function (Controller) {
 					)
 				);
 			});
+		},
+
+		fnOnBookingNewFlight: function(){
+			var oRouter = this.getOwnerComponent().getRouter();
+			oRouter.navTo("AirFlightCreate");
 		}
     });
 });
