@@ -97,7 +97,7 @@
       "routes": [
         {
           "name": "RouteAirFlightList",
-          "pattern": ":?query:",
+          "pattern": "AirFlightDetail",
           "target": [
             "TargetAirFlightList"
           ]
@@ -108,7 +108,15 @@
           "target": [
             "TargetAirFlightCreate"
           ]
+        },
+        {
+          "name": "AirFlightDetail",
+          "pattern": ":?query:",
+          "target": [
+            "TargetAirFlightDetail"
+          ]
         }
+
       ],
       "targets": {
         "TargetAirFlightList": {
@@ -124,6 +132,13 @@
           "clearControlAggregation": false,
           "viewId": "AirFlightCreate",
           "viewName": "AirFlightCreate"
+        },
+        "TargetAirFlightDetail": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "AirFlightDetail",
+          "viewName": "AirFlightDetail"
         }
       }
     },
