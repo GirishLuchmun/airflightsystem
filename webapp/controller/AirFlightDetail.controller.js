@@ -4,9 +4,9 @@ sap.ui.define([
 function (Controller) {
     "use strict";
 
-    return Controller.extend("fiori.bootcamp.airflightsystem.controller.AirFlight", {
+    return Controller.extend("fiori.bootcamp.airflightsystem.controller.AirFlightDetail", {
         onInit: function () {
-
+            
         }
     });
 });

@@ -1,0 +1,80 @@
+<mvc:View xmlns:table="sap.ui.table" id="AirFlightList" controllerName="fiori.bootcamp.airflightsystem.controller.AirFlightList"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns:m="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:f="sap.f"
+	xmlns:st="sap.ui.comp.smarttable"
+    xmlns:sfb="sap.ui.comp.smartfilterbar"
+	xmlns:svm="sap.ui.comp.smartvariants">
+    <f:DynamicPage id="AirFlightListPageId">
+			<f:header>
+				<f:DynamicPageHeader>
+					<f:content>
+						<sfb:SmartFilterBar
+							id="smartFilterBar"
+							entitySet="AirlineSet"
+							search="onSearch">
+							<sfb:controlConfiguration>
+								<sfb:ControlConfiguration key="1" label="{i18n>departureAirport}">
+								<sfb:customControl>
+									<m:ComboBox
+										id="departureId"
+										selectionChange="customFieldChange">
+										<core:Item key="1" text="Mauritius"/>
+										<core:Item key="2" text="Paris"/>
+										<core:Item key="3" text="Rome"/>
+										<core:Item key="4" text="Dubai"/>
+										<core:Item key="5" text="Istanbul"/>
+									</m:ComboBox>
+								</sfb:customControl>
+							</sfb:ControlConfiguration>
+							<sfb:ControlConfiguration key="2" label="{i18n>arrivalAirport}">
+								<sfb:customControl>
+									<m:ComboBox
+										id="arrivalId"
+										selectionChange="customFieldChange">
+										<core:Item key="1" text="Mauritius"/>
+										<core:Item key="2" text="Paris"/>
+										<core:Item key="3" text="Rome"/>
+										<core:Item key="4" text="Dubai"/>
+										<core:Item key="5" text="Istanbul"/>
+									</m:ComboBox>
+								</sfb:customControl>
+							</sfb:ControlConfiguration>
+
+							</sfb:controlConfiguration>
+						</sfb:SmartFilterBar>
+						
+					</f:content>
+				</f:DynamicPageHeader>
+			</f:header>
+			<f:content>
+				<st:SmartTable
+					id="smartTable"
+					entitySet="AirlineSet"
+					smartVariant="PageVariantId"
+					smartFilterId="smartFilterBar"
+					beforeRebindTable="onBeforeRebindTable"
+					tableType="Table"
+					enableAutoColumnWidth="true"
+					useTablePersonalisation="true"
+					showRowCount="true">
+					<st:customToolbar>
+						<m:OverflowToolbar>
+							<m:Title text="{i18n>airFlight}"/>
+							<m:ToolbarSpacer/>
+							<m:Button id="newBookingId" text="{i18n>bookingButton}" press="fnOnBookingNewFlight"/>
+						</m:OverflowToolbar>
+					</st:customToolbar>
+					<m:Table
+						id="flightTableId">
+						<m:columns>
+							<m:Column id="DestinationCol">
+								<m:Text text="{i18n>departureAirport}"/>
+							</m:Column>
+						</m:columns>
+					</m:Table>
+				</st:SmartTable>
+			</f:content>
+		</f:DynamicPage>
+</mvc:View>
