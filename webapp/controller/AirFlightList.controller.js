@@ -10,18 +10,7 @@ function (Controller) {
         },
 
         onBeforeRebindTable: function(oEvent) {
-			var mBindingParams = oEvent.getParameter("bindingParams"),
-				aSelectedItems = this._oCustomMultiComboBox.getSelectedItems();
-
-			aSelectedItems.forEach(function(oSelectedItem) {
-				mBindingParams.filters.push(
-					new Filter(
-						"CompanyCode",
-						FilterOperator.EQ,
-						oSelectedItem.getText()
-					)
-				);
-			});
+			var mBindingParams = oEvent.getParameter("bindingParams");
 		},
 
 		fnOnBookingNewFlight: function(){
