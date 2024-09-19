@@ -3,78 +3,165 @@
     xmlns:m="sap.m"
 	xmlns:core="sap.ui.core"
 	xmlns:f="sap.f"
-	xmlns:st="sap.ui.comp.smarttable"
+	xmlns:smartTable="sap.ui.comp.smarttable"
     xmlns:sfb="sap.ui.comp.smartfilterbar"
 	xmlns:svm="sap.ui.comp.smartvariants">
     <f:DynamicPage id="AirFlightListPageId">
 			<f:header>
-				<f:DynamicPageHeader>
-					<f:content>
+				<f:DynamicPageHeader id="pageheaderID">
+                <f:content>
 						<sfb:SmartFilterBar
 							id="smartFilterBar"
-							entitySet="AirlineSet"
+							entitySet="Flight"
 							search="onSearch">
 							<sfb:controlConfiguration>
-								<sfb:ControlConfiguration key="1" label="{i18n>departureAirport}">
-								<sfb:customControl>
-									<m:ComboBox
-										id="departureId"
-										selectionChange="customFieldChange">
-										<core:Item key="1" text="Mauritius"/>
-										<core:Item key="2" text="Paris"/>
-										<core:Item key="3" text="Rome"/>
-										<core:Item key="4" text="Dubai"/>
-										<core:Item key="5" text="Istanbul"/>
-									</m:ComboBox>
-								</sfb:customControl>
-							</sfb:ControlConfiguration>
-							<sfb:ControlConfiguration key="2" label="{i18n>arrivalAirport}">
-								<sfb:customControl>
-									<m:ComboBox
-										id="arrivalId"
-										selectionChange="customFieldChange">
-										<core:Item key="1" text="Mauritius"/>
-										<core:Item key="2" text="Paris"/>
-										<core:Item key="3" text="Rome"/>
-										<core:Item key="4" text="Dubai"/>
-										<core:Item key="5" text="Istanbul"/>
-									</m:ComboBox>
-								</sfb:customControl>
-							</sfb:ControlConfiguration>
-
+								<sfb:ControlConfiguration index="1" key="FlightId" label="{i18n>flightId}">
+									<sfb:customControl>
+										<m:Input id="oFlightIdFilter"/>
+									</sfb:customControl>
+								</sfb:ControlConfiguration>
+								<sfb:ControlConfiguration index="2" key="FlightStatus" label="{i18n>Statut}">
+									<sfb:customControl>
+										<m:Select id="flightStatusId">
+											<core:Item key="1" text="On Time"/>
+                                            <core:Item key="2" text="Delayed"/>
+                                            <core:Item key="3" text="Cancel"/>
+										</m:Select>
+									</sfb:customControl>
+								</sfb:ControlConfiguration>
+								<sfb:ControlConfiguration index="3" key="ArrivalDateTime" label="{i18n>arrivalTime}">
+									<sfb:customControl>
+										<m:DatePicker/>
+									</sfb:customControl>
+								</sfb:ControlConfiguration>
+								<sfb:ControlConfiguration index="4" key="DepartureDateTime" label="{i18n>departureTime}">
+									<sfb:customControl>
+										<m:DatePicker/>
+									</sfb:customControl>
+								</sfb:ControlConfiguration>
+								<sfb:ControlConfiguration index="5" key="DestinationAirportCode" label="{i18n>DestAirportCode}">
+									<sfb:customControl>
+										<m:Input id="oDestAirportCodeFilter" />
+									</sfb:customControl>
+								</sfb:ControlConfiguration>
+								<sfb:ControlConfiguration index="6" key="OriginAirportCode" label="{i18n>OriginAirportCode}">
+									<sfb:customControl>
+										<m:Input id="oOriginAirportCodeFilter" />
+									</sfb:customControl>
+								</sfb:ControlConfiguration>
+								<sfb:ControlConfiguration index="7" key="AirlineId" label="{i18n>AirlineID}">
+									<sfb:customControl>
+										<m:Input id="oAirlineIdFilter" />
+									</sfb:customControl>
+								</sfb:ControlConfiguration>
+								<sfb:ControlConfiguration index="8" key="FlightDuration" label="{i18n>flightDuration}">
+									<sfb:customControl>
+										<m:Input id="oFlightDuration" />
+									</sfb:customControl>
+								</sfb:ControlConfiguration>
 							</sfb:controlConfiguration>
 						</sfb:SmartFilterBar>
-						
-					</f:content>
+                        </f:content>
 				</f:DynamicPageHeader>
 			</f:header>
 			<f:content>
-				<st:SmartTable
+				<smartTable:SmartTable
 					id="smartTable"
-					entitySet="AirlineSet"
 					smartVariant="PageVariantId"
 					smartFilterId="smartFilterBar"
+					entitySet="Flight"
 					beforeRebindTable="onBeforeRebindTable"
 					tableType="Table"
 					enableAutoColumnWidth="true"
 					useTablePersonalisation="true"
 					showRowCount="true">
-					<st:customToolbar>
+					<smartTable:customToolbar>
 						<m:OverflowToolbar>
 							<m:Title text="{i18n>airFlight}"/>
 							<m:ToolbarSpacer/>
 							<m:Button id="newBookingId" text="{i18n>bookingButton}" press="fnOnBookingNewFlight"/>
 						</m:OverflowToolbar>
-					</st:customToolbar>
+					</smartTable:customToolbar>
 					<m:Table
 						id="flightTableId">
 						<m:columns>
-							<m:Column id="DestinationCol">
-								<m:Text text="{i18n>departureAirport}"/>
+							<m:Column id="FlightIdCol">
+								<m:Text text="{i18n>flightId}"/>
+									<m:customData>
+										<core:CustomData id="dataFlightId"
+											key="p13nData"
+											value='\{
+												"columnIndex": "0",
+												"leadingProperty": "FlightId",
+												"columnKey": "FlightId"
+												}
+											}'/>
+								</m:customData>
+							</m:Column>
+							<m:Column id="ArrivalDateTimeCol">
+								<m:Text text="{i18n>arrivalTime}"/>
+									<m:customData>
+										<core:CustomData id="ArrivalDateTimeId"
+												key="p13nData"
+												value='\{
+													"columnIndex": "1",
+													"leadingProperty": "ArrivalDateTime",
+													"columnKey": "ArrivalDateTime"
+													}
+												}'/>
+									</m:customData>
+							</m:Column>
+							<m:Column id="DepartureDateTimeCol">
+								<m:Text text="{i18n>departureTime}"/>
+									<m:customData>
+										<core:CustomData id="DepartureDateTimeId"
+												key="p13nData"
+												value='\{
+													"columnIndex": "2",
+													"leadingProperty": "DepartureDateTime",
+													"columnKey": "DepartureDateTime"
+													}
+												}'/>
+									</m:customData>
+							</m:Column>
+							<m:Column id="FlightStatusCol">
+								<m:Text text="{i18n>Statut}"/>
+									<m:customData>
+										<core:CustomData id="flightStatusDataId"
+											key="p13nData"
+											value='\{
+												"columnIndex": "3",
+												"leadingProperty": "FlightStatus",
+												"columnKey": "FlightStatus"
+												}
+											}'/>
+										</m:customData>
+							</m:Column>
+							<m:Column id="FlightDurationCol">
+								<m:Text text="{i18n>flightDuration}"/>
+									<m:customData>
+										<core:CustomData id="flightDurationDataId"
+												key="p13nData"
+												value='\{
+													"columnIndex": "4",
+													"leadingProperty": "FlightDuration",
+													"columnKey": "FlightDuration"
+													}
+												}'/>
+									</m:customData>
 							</m:Column>
 						</m:columns>
+						<m:items>
+							<m:ColumnListItem>
+									<m:Text text="{FlightId}" />
+									<m:Text	text="{ArrivalDateTime}" />
+									<m:Text	text="{DepartureDateTime}" />
+									<m:Text	text="{FlightStatus}" />
+									<m:Text	text="{FlightDuration}" />
+							</m:ColumnListItem>
+						</m:items>
 					</m:Table>
-				</st:SmartTable>
+				</smartTable:SmartTable>
 			</f:content>
 		</f:DynamicPage>
 </mvc:View>
