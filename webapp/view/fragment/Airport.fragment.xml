@@ -1,6 +1,6 @@
 <core:FragmentDefinition xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns="sap.m"
 	xmlns:smartField="sap.ui.comp.smartfield" xmlns:form="sap.ui.comp.smartform" xmlns:upload="sap.m.upload">
-	<f:SimpleForm id="idInfoDisplay" editable="false" layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="3" labelSpanM="2"
+	<f:SimpleForm id="idAirportInfoDisplay" editable="false" layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="3" labelSpanM="2"
 		labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="2" columnsM="1"
 		singleContainerFullSize="false" visible="{= ${ViewMode>/mode} === 'view' ? true : false }">
 		<f:content>
@@ -19,7 +19,7 @@
 		</f:content>
 	</f:SimpleForm>
 
-	<f:SimpleForm id="idInfoEdit" editable="false" layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="3" labelSpanM="2" labelSpanS="12"
+	<f:SimpleForm id="idAirportInfoEdit" editable="false" layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="3" labelSpanM="2" labelSpanS="12"
 		adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="2" columnsM="1"
 		singleContainerFullSize="false" visible="{= ${ViewMode>/mode} === 'edit' ? true : ${ViewMode>/mode} === 'add' ? true :false }">
 		<f:content>
